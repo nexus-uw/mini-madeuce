@@ -1,8 +1,9 @@
 FROM --platform=$BUILDPLATFORM golang:alpine as builder
-WORKDIR /go/src/github.com/nexus-uw/mini-madeuce
+WORKDIR /go/src/github.com/nexus-uw/mini-madeuc
 COPY  . /go/src/github.com/nexus-uw/mini-madeuce/
 RUN apk add --no-cache gcc musl-dev && go get github.com/mattn/go-sqlite3
-RUN GO111MODULE=auto CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/mini-madeuce
+RUN go get ./
+RUN  go build -o /go/bin/mini-madeuce
 
 FROM scratch
 COPY --from=builder /go/bin/mini-madeuce /app/mini-madeuce
