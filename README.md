@@ -1,5 +1,8 @@
 # Minimaduce
 # WIP
+```
+touch db/mini-maduece
+```
 
 ## todo
 
@@ -8,7 +11,6 @@
 - caddyfile
     - basic logging
     - tor service
-- docker
 - blog post
 - proper doc
 - auto build

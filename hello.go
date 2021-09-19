@@ -132,13 +132,13 @@ func handleMain(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	var err error
-	db, err = sql.Open("sqlite3", "./mini-madeuce.db")
+	db, err = sql.Open("sqlite3", "./db/mini-madeuce.db")
 
 	checkErr(err)
 	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS shorties (
-		id int primary key not null, 
+		id int primary key not null,
 		url char(256),
-		hits int, 
+		hits int,
 		maxHits int,
 		created datetime,
 		expiry datetime
