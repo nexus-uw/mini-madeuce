@@ -1,6 +1,6 @@
 FROM --platform=$BUILDPLATFORM golang:alpine as builder
-WORKDIR /app
-COPY  . /app/
+WORKDIR /go/src/github.com/nexus-uw/mini-madeuce
+COPY  . /go/src/github.com/nexus-uw/mini-madeuce/
 RUN apk add --no-cache gcc musl-dev && go get github.com/mattn/go-sqlite3
 RUN GO111MODULE=auto CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/mini-madeuce
 
