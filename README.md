@@ -1,4 +1,8 @@
-# Minimaduce
+# Mini-Madeuce
+
+![](https://dockeri.co/image/nexusuw/mini-madeuce)
+
+
 # WIP
 ```
 touch db/mini-maduece
