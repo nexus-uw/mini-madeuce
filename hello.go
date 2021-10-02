@@ -75,8 +75,13 @@ func createShortie(w http.ResponseWriter, r *http.Request) {
 		checkErr(err)
 		t := parsedTemplates.Lookup("success.html")
 
+		proto := "https"
+		if strings.Contains(host, "localhost") {
+			proto = "http"
+		}
+
 		d := SucessData{
-			URL:   fmt.Sprintf("http://%s/%s", host, id),
+			URL:   fmt.Sprintf("%s://%s/%s", proto, host, id),
 			Onion: fmt.Sprintf("http://%s/%s", onion, id),
 		}
 		t.Execute(w, d)
@@ -94,6 +99,9 @@ func handleMain(w http.ResponseWriter, r *http.Request) {
 			t := parsedTemplates.Lookup("index.html")
 			t.Execute(w, nil)
 			// todo: set cache header on this
+		} else if r.URL.Path == "/about" {
+			t := parsedTemplates.Lookup("about.html")
+			t.Execute(w, nil)
 		} else if shortieReg.MatchString(r.URL.Path) {
 			// look up path
 			id := strings.Split(r.URL.Path, "/")[1]

@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    
-    <title>index</title>
+
+    <title>mini-madeuce</title>
     {{template "head"}}
 
 </head>
@@ -14,7 +14,7 @@
     <form action="/createShortie" method="POST" >
         <div>
             <label for="url">url</label>
-            <input name="url" type="url" />
+            <input name="url" type="url" placeholder="https://mokin-token.ramsay.xyz"/>
         </div>
         <div>
             <label for="url">exipires after max number of hits</label>
@@ -27,26 +27,7 @@
         <input type="submit" value="createShortie">
     </form>
 </main>
-<h4 >about</h4>
-<p>mini-madeuce is an open source and selfhostable url shortner</p>
-things
 
-open source - can verify code, see logging setup
-
-self hostable - deploy own code on own machine, disable logging
-
-onion - v3 ? can create shortie url with this endpoint, and use clearnet to access shortie (or have auto onion redirect to load up onion page and then manually type in shortie)
-
-combine with 
-massive pass - create password
-mokintoken - store password (expiry and hit count, clientside encrypted)
-mini-madeuce - shorten mokintoken url into something possible to copy down or type into a separate computer
-
-
-use cases
-1. setting up new computer (or using tmp account), allows secure transfer of initial password from password manager on phone to new machine (ie: if email password is 56 random characters)
-2. maintain isolation b/w online accounts (ie: avoid sending email from known account to anonomus account)
-3. see if someone is reading + inspecting your messages (same as mokintoken), send a test message with a 1 read count allowed, visit the url later and see if still able to access. if the message has reached it hit count, someone has already visited it and your messaging channel is not secure
 {{template "footer"}}
 </body>
-</html>     
+</html>

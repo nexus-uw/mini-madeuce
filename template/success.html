@@ -8,13 +8,14 @@
 
 <body>
     {{template "header"}}
+  <main>
+   <h5> fabricated successfully</h5>
+   <a id="short_url" href="{{ .URL }}" referrerpolicy="no-referrer" target="_blank" rel="noopener">{{ .URL }}</a>
+   <div id="onion_url">(onion <code>{{ .Onion }}</code>)</div>
 
-   short url created 
-   <a href="{{ .URL }}" referrerpolicy="no-referrer" target="_blank" rel="noopener">{{ .URL }}</a> 
-   <div>(onion <code>{{ .Onion }}</code>)</div>
-
-   <a href='/'>return to home to create a nother shortie</a>
+   <a href='/' id="go_back_home_url">return to home to create another shortie</a>
+  </main>
    {{template "footer"}}
 
 </body>
-</html>     
+</html>
