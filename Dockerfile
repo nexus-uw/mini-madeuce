@@ -4,7 +4,9 @@ RUN apk add gcc musl-dev
 WORKDIR /go/src/github.com/nexus-uw/mini-madeuce
 COPY  . /go/src/github.com/nexus-uw/mini-madeuce
 RUN go get ./
-RUN  go build -o /go/bin/mini-madeuce
+RUN CGO_ENABLED=1 \
+    CGO_CFLAGS="-D_LARGEFILE64_SOURCE" \
+    go build -o /go/bin/mini-madeuce
 RUN touch mini-madeuce.db
 
 FROM alpine
