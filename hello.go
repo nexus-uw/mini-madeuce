@@ -99,6 +99,8 @@ func handleMain(w http.ResponseWriter, r *http.Request) {
 			t := parsedTemplates.Lookup("index.html")
 			t.Execute(w, nil)
 			// todo: set cache header on this
+		} else if r.URL.Path == "/ping" {
+			w.Write([]byte("pong\n"))
 		} else if r.URL.Path == "/about" {
 			t := parsedTemplates.Lookup("about.html")
 			t.Execute(w, nil)
